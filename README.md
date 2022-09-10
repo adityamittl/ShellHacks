@@ -14,6 +14,10 @@
 
 - A domain name with a .tech extension.
 
+## ☁ Best Use of Microsoft Cloud for Social Impact - MLH
+
+We are using Azure Cloud to train our ML model for Resume Screening. We are using Azure's Cognitive Services to extract text from the resume and then we are using Azure's Machine Learning Studio to train our model. Azure is a great platform for ML and AI and we are using it to solve problem faced by many people looking for jobs.
+
 ## ⛓ MITRE: Building Web3
 
 We are using blockchain to build a web3 application that is decentralized and secure. We are using the Ethereum blockchain to store data and interact with the smart contract. People can put up their resume and the community can suggest some suggestion to improve the resume and in return they will get some ETH.

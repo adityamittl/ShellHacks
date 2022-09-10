@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Tracker | APP NAME</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;500&family=Roboto:wght@100;300;400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            text-decoration: none;
+            outline: none;
+            border: none;
+            text-transform: capitalize;
+            transition: all 0.2s linear;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 78px;
+            background: #11101D;
+            padding: 6px 14px;
+            z-index: 99;
+            transition: all 0.5s ease;
+        }
+
+        .sidebar.open {
+            width: 250px;
+        }
+
+        .sidebar .logo-details {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .sidebar .logo-details .icon {
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .sidebar .logo-details .logo_name {
+            padding-top: 20px;
+            color: #fff;
+            font-size: 20px;
+            font-weight: 600;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .sidebar.open .logo-details .icon,
+        .sidebar.open .logo-details .logo_name {
+            opacity: 1;
+        }
+
+        .sidebar .logo-details #btn {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            font-size: 22px;
+            transition: all 0.4s ease;
+            font-size: 23px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.5s ease;
+        }
+
+        .sidebar.open .logo-details #btn {
+            text-align: right;
+        }
+
+        .sidebar i {
+            color: #fff;
+            height: 60px;
+            min-width: 50px;
+            font-size: 28px;
+            text-align: center;
+            line-height: 60px;
+        }
+
+        .sidebar .nav-list {
+            margin-top: 20px;
+            height: 100%;
+        }
+
+        .sidebar li {
+            position: relative;
+            margin: 8px 0;
+            list-style: none;
+        }
+
+        .sidebar li .tooltip {
+            position: absolute;
+            top: -20px;
+            left: calc(100% + 15px);
+            z-index: 3;
+            background: #fff;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: 400;
+            opacity: 0;
+            white-space: nowrap;
+            pointer-events: none;
+            transition: 0s;
+        }
+
+        .sidebar li:hover .tooltip {
+            opacity: 1;
+            pointer-events: auto;
+            transition: all 0.4s ease;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .sidebar.open li .tooltip {
+            display: none;
+        }
+
+        .sidebar li a {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            border-radius: 12px;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            background: #11101D;
+        }
+
+        .sidebar li a:hover {
+            background: #FFF;
+        }
+
+        .sidebar li a .links_name {
+            color: #fff;
+            font-size: 15px;
+            font-weight: 400;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.4s;
+        }
+
+        .sidebar.open li a .links_name {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .sidebar li a:hover .links_name,
+        .sidebar li a:hover i {
+            transition: all 0.5s ease;
+            color: #11101D;
+        }
+
+        .sidebar li i {
+            height: 50px;
+            line-height: 50px;
+            font-size: 18px;
+            border-radius: 12px;
+        }
+
+        .sidebar li.profile {
+            position: fixed;
+            height: 60px;
+            width: 78px;
+            left: 0;
+            bottom: -8px;
+            padding: 10px 14px;
+            background: #1d1b31;
+            transition: all 0.5s ease;
+            overflow: hidden;
+        }
+
+        .sidebar .profile #log_out {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            background: #1d1b31;
+            width: 100%;
+            height: 60px;
+            line-height: 60px;
+            border-radius: 0px;
+            transition: all 0.5s ease;
+        }
+
+        .sidebar.open .profile #log_out {
+            width: 50px;
+            background: none;
+        }
+
+        .home-section {
+            position: relative;
+            background: #E4E9F7;
+            min-height: 100vh;
+            top: 0;
+            left: 78px;
+            width: calc(100% - 78px);
+            transition: all 0.5s ease;
+            z-index: 2;
+        }
+
+        .sidebar.open~.home-section {
+            left: 250px;
+            width: calc(100% - 250px);
+        }
+
+        .home-section .text {
+            display: inline-block;
+            color: #11101d;
+            font-size: 25px;
+            font-weight: 500;
+            margin: 18px
+        }
+
+        @media (max-width: 420px) {
+            .sidebar li .tooltip {
+                display: none;
+            }
+        }
+
+        .home {
+            position: relative;
+            background: #E4E9F7;
+            min-height: 100vh;
+            top: 0;
+            left: 78px;
+            width: calc(100% - 78px);
+            transition: all 0.5s ease;
+            z-index: 2;
+        }
+
+        .hero_heading {
+            display: grid;
+            place-items: center;
+            font-size: 32px;
+            padding-top: 15px;
+        }
+
+        .wallet-connect-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            background-color: #1d1b31;
+            font-size: 2rem;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 3rem;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .drag-container {
+            margin: 20px;
+            color: white;
+        }
+
+        .drag-list {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .drag-column {
+            flex: 1;
+            margin: 0 10px;
+            position: relative;
+            background-color: rgba(33, 33, 33, 0.4);
+            border-radius: 10px;
+            overflow-x: hidden;
+        }
+
+        .header span {
+            font-size: 4rem;
+        }
+
+        .header {
+            display: flex;
+            justify-content: center;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+        }
+
+        .over {
+            padding: 50px 10px;
+        }
+
+        .drag-item-list {
+            min-height: 50px;
+        }
+
+        .drag-item {
+            margin: 10px;
+            padding: 10px;
+            height: fit-content;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            line-height: 1.5rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            font-size: 2rem;
+        }
+
+        .drag-item:focus {
+            outline: none;
+            background-color: white;
+            color: black;
+        }
+
+        .add-btn-group {
+            display: flex;
+            font-size: 2rem;
+            justify-content: space-between;
+        }
+
+        .add-btn {
+            margin: 10px;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            width: fit-content;
+            border-radius: 5px;
+            transition: all 0.3s ease-in;
+            user-select: none;
+        }
+
+        .add-btn:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: black;
+        }
+
+        .add-btn:active {
+            transform: scale(0.97);
+        }
+
+        .solid {
+            display: none;
+        }
+
+        .solid:hover {
+            transition: unset;
+            filter: brightness(95%);
+            color: white;
+        }
+
+        .plus-sign {
+            font-size: 1.5rem;
+            margin-right: 5px;
+            position: relative;
+            top: -3px;
+        }
+
+        .add-container {
+            margin: 10px;
+            padding: 5px 10px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+            min-height: 100px;
+            display: none;
+        }
+
+        .add-item {
+            width: 100%;
+            min-height: 100px;
+            height: auto;
+            background-color: white;
+            border-radius: 10px;
+            margin: 5px auto;
+            resize: none;
+            color: black;
+            padding: 10px;
+            font-size: 2rem;
+        }
+
+        .add-item:focus {
+            outline: none;
+        }
+    </style>
+
+    <div class="sidebar">
+        <div class="logo-details">
+            <div class="logo_name">APP NAME</div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="/">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Home</span>
+                </a>
+                <span class="tooltip">Home</span>
+            </li>
+            <li>
+                <a href="/resumeClassifier">
+                    <i class='bx bxs-book-content'></i>
+                    <span class="links_name">Resume Classifier</span>
+                </a>
+                <span class="tooltip">Resume Classifier</span>
+            </li>
+            <li>
+                <a href="/linkedInVisualizer">
+                    <i class='bx bxl-linkedin-square'></i>
+                    <span class="links_name">LinkedIn Visualizer</span>
+                </a>
+                <span class="tooltip">LinkedIn Visualizer</span>
+            </li>
+            <li>
+                <a href="/applicationTracker">
+                    <i class='bx bxs-book-bookmark'></i>
+                    <span class="links_name">Application Tracker</span>
+                </a>
+                <span class="tooltip">Application Tracker</span>
+            </li>
+            <li>
+                <a href="/chatroom">
+                    <i class='bx bxs-conversation'></i>
+                    <span class="links_name">Chatroom</span>
+                </a>
+                <span class="tooltip">Chatroom</span>
+            </li>
+
+            <li class="profile">
+                <a href="/signout">
+                    <i class='bx bx-log-out' id="log_out"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <section class="home" id="home">
+
+        <h1 class="hero_heading">Application Tracker</h1>
+
+        <div class="drag-container">
+            <ul class="drag-list">
+
+                <li class="drag-column Wishlist-column">
+                    <span class="header">
+                        <h1>Wishlist</h1>
+                    </span>
+                    <div id="Wishlist-content" class="custom-scroll">
+                        <ul class="drag-item-list" id="Wishlist-list" ondrop="drop(event)" ondragover="allowDrop(event)"
+                            ondragenter="dragEnter(0)"></ul>
+                    </div>
+                    <div class="add-btn-group">
+                        <div class="add-btn" onclick="showInputBox(0)">
+                            <span class="plus-sign">+</span>
+                            <span>Add Item</span>
+                        </div>
+                        <div class="add-btn solid" onclick="hideInputBox(0)">
+                            <span>Save Item</span>
+                        </div>
+                    </div>
+                    <div class="add-container">
+                        <div class="add-item" contenteditable="true"></div>
+                    </div>
+                </li>
+
+                <li class="drag-column applied-column">
+                    <span class="header">
+                        <h1>Applied</h1>
+                    </span>
+                    <div id="progress-content" class="custom-scroll">
+                        <ul class="drag-item-list" id="progress-list" ondrop="drop(event)" ondragover="allowDrop(event)"
+                            ondragenter="dragEnter(1)"></ul>
+                    </div>
+                    <div class="add-btn-group">
+                        <div class="add-btn" onclick="showInputBox(1)">
+                            <span class="plus-sign">+</span>
+                            <span>Add Item</span>
+                        </div>
+                        <div class="add-btn solid" onclick="hideInputBox(1)">
+                            <span>Save Item</span>
+                        </div>
+                    </div>
+                    <div class="add-container">
+                        <div class="add-item" contenteditable="true"></div>
+                    </div>
+                </li>
+
+                <li class="drag-column interview-column">
+                    <span class="header">
+                        <h1>Interview</h1>
+                    </span>
+                    <div id="complete-content" class="custom-scroll">
+                        <ul class="drag-item-list" id="complete-list" ondrop="drop(event)" ondragover="allowDrop(event)"
+                            ondragenter="dragEnter(2)"></ul>
+                    </div>
+                    <div class="add-btn-group">
+                        <div class="add-btn" onclick="showInputBox(2)">
+                            <span class="plus-sign">+</span>
+                            <span>Add Item</span>
+                        </div>
+                        <div class="add-btn solid" onclick="hideInputBox(2)">
+                            <span>Save Item</span>
+                        </div>
+                    </div>
+                    <div class="add-container">
+                        <div class="add-item" contenteditable="true"></div>
+                    </div>
+                </li>
+
+                <li class="drag-column offers-column">
+                    <span class="header">
+                        <h1>Offers</h1>
+                    </span>
+                    <div id="offers-content" class="custom-scroll">
+                        <ul class="drag-item-list" id="offers-list" ondrop="drop(event)" ondragover="allowDrop(event)"
+                            ondragenter="dragEnter(3)"></ul>
+                    </div>
+                    <div class="add-btn-group">
+                        <div class="add-btn" onclick="showInputBox(3)">
+                            <span class="plus-sign">+</span>
+                            <span>Add Item</span>
+                        </div>
+                        <div class="add-btn solid" onclick="hideInputBox(3)">
+                            <span>Save Item</span>
+                        </div>
+                    </div>
+                    <div class="add-container">
+                        <div class="add-item" contenteditable="true"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+
+        AOS.init({
+            delay: 400,
+            duration: 1000
+        })
+
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2.2.1/src/js.cookie.min.js"></script>
+
+    <script>
+        function imgsplit() {
+            $("#splitform").append("<input type = 'file' name = 'myfile' id='myfile'>")
+            $("#mos").val('1');
+            $("#myfile").attr('value', '1')
+
+        }
+        function ammsplit() {
+            $("#splitform").append('<input type="text" placeholder="Amount of bill" name="ammount">')
+            $("#mos").attr('value', '2');
+        }
+        let sidebar = document.querySelector(".sidebar");
+        let closeBtn = document.querySelector("#btn");
+        let searchBtn = document.querySelector(".bx-search");
+
+        closeBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+            menuBtnChange();
+        });
+
+        searchBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+            menuBtnChange();
+        });
+
+        console.log(Cookies.get('csrftoken'));
+
+    </script>
+
+    <script>
+        const addBtns = document.querySelectorAll('.add-btn:not(.solid)');
+        const saveItemBtns = document.querySelectorAll('.solid');
+        const addItemContainers = document.querySelectorAll('.add-container');
+        const addItems = document.querySelectorAll('.add-item');
+        const listColumns = document.querySelectorAll('.drag-item-list');
+        const WishlistListEl = document.getElementById('Wishlist-list');
+        const progressListEl = document.getElementById('progress-list');
+        const completeListEl = document.getElementById('complete-list');
+        const onHoldListEl = document.getElementById('offers-list');
+
+        let updatedOnLoad = false;
+
+        let WishlistListArray = [];
+        let progressListArray = [];
+        let completeListArray = [];
+        let onHoldListArray = [];
+        let listArrays = [];
+
+        let draggedItem;
+        let dragging = false;
+        let currentColumn;
+
+        function getSavedColumns() {
+            if (localStorage.getItem('WishlistItems')) {
+                WishlistListArray = JSON.parse(localStorage.WishlistItems);
+                progressListArray = JSON.parse(localStorage.progressItems);
+                completeListArray = JSON.parse(localStorage.completeItems);
+                onHoldListArray = JSON.parse(localStorage.onHoldItems);
+            } else {
+                WishlistListArray = ['Google'];
+                progressListArray = ['Facebook'];
+                completeListArray = ['Microsoft'];
+                onHoldListArray = ['Amazon'];
+            }
+        }
+
+        function updateSavedColumns() {
+            listArrays = [WishlistListArray, progressListArray, completeListArray, onHoldListArray];
+            const arrayNames = ['Wishlist', 'progress', 'complete', 'onHold'];
+            arrayNames.forEach((arrayName, index) => {
+                localStorage.setItem(`${arrayName}Items`, JSON.stringify(listArrays[index]));
+            });
+        }
+
+        function filterArray(array) {
+            const filteredArray = array.filter(item => item !== null);
+            return filteredArray;
+        }
+
+        function createItemEl(columnEl, column, item, index) {
+            const listEl = document.createElement('li');
+            listEl.textContent = item;
+            listEl.id = index;
+            listEl.classList.add('drag-item');
+            listEl.draggable = true;
+            listEl.setAttribute('onfocusout', `updateItem(${index}, ${column})`);
+            listEl.setAttribute('ondragstart', 'drag(event)');
+            listEl.contentEditable = true;
+            columnEl.appendChild(listEl);
+        }
+
+        function updateDOM() {
+            if (!updatedOnLoad) {
+                getSavedColumns();
+            }
+            WishlistListEl.textContent = '';
+            WishlistListArray.forEach((WishlistItem, index) => {
+                createItemEl(WishlistListEl, 0, WishlistItem, index);
+            });
+            WishlistListArray = filterArray(WishlistListArray);
+            progressListEl.textContent = '';
+            progressListArray.forEach((progressItem, index) => {
+                createItemEl(progressListEl, 1, progressItem, index);
+            });
+            progressListArray = filterArray(progressListArray);
+            completeListEl.textContent = '';
+            completeListArray.forEach((completeItem, index) => {
+                createItemEl(completeListEl, 2, completeItem, index);
+            });
+            completeListArray = filterArray(completeListArray);
+            onHoldListEl.textContent = '';
+            onHoldListArray.forEach((onHoldItem, index) => {
+                createItemEl(onHoldListEl, 3, onHoldItem, index);
+            });
+            onHoldListArray = filterArray(onHoldListArray);
+            updatedOnLoad = true;
+            updateSavedColumns();
+        }
+
+        function updateItem(id, column) {
+            const selectedArray = listArrays[column];
+            const selectedColumn = listColumns[column].children;
+            if (!dragging) {
+                if (!selectedColumn[id].textContent) {
+                    delete selectedArray[id];
+                } else {
+                    selectedArray[id] = selectedColumn[id].textContent;
+                }
+                updateDOM();
+            }
+        }
+
+        function addToColumn(column) {
+            const itemText = addItems[column].textContent;
+            const selectedArray = listArrays[column];
+            selectedArray.push(itemText);
+            addItems[column].textContent = '';
+            updateDOM(column);
+        }
+
+        function showInputBox(column) {
+            addBtns[column].style.visibility = 'hidden';
+            saveItemBtns[column].style.display = 'flex';
+            addItemContainers[column].style.display = 'flex';
+        }
+
+        function hideInputBox(column) {
+            addBtns[column].style.visibility = 'visible';
+            saveItemBtns[column].style.display = 'none';
+            addItemContainers[column].style.display = 'none';
+            addToColumn(column);
+        }
+
+        function rebuildArrays() {
+            WishlistListArray = [];
+            for (let i = 0; i < WishlistListEl.children.length; i++) {
+                WishlistListArray.push(WishlistListEl.children[i].textContent);
+            }
+            progressListArray = [];
+            for (let i = 0; i < progressListEl.children.length; i++) {
+                progressListArray.push(progressListEl.children[i].textContent);
+            }
+            completeListArray = [];
+            for (let i = 0; i < completeListEl.children.length; i++) {
+                completeListArray.push(completeListEl.children[i].textContent);
+            }
+            onHoldListArray = [];
+            for (let i = 0; i < onHoldListEl.children.length; i++) {
+                onHoldListArray.push(onHoldListEl.children[i].textContent);
+            }
+            updateDOM();
+        }
+
+        function dragEnter(column) {
+            listColumns[column].classList.add('over');
+            currentColumn = column;
+        }
+
+        function drag(e) {
+            draggedItem = e.target;
+            dragging = true;
+        }
+
+        function allowDrop(e) {
+            e.preventDefault();
+        }
+
+        function drop(e) {
+            e.preventDefault();
+            const parent = listColumns[currentColumn];
+            listColumns.forEach((column) => {
+                column.classList.remove('over');
+            });
+            parent.appendChild(draggedItem);
+            dragging = false;
+            rebuildArrays();
+        }
+
+        updateDOM();
+
+    </script>
+
+</body>
+
+</html>
