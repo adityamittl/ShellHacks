@@ -1,10 +1,10 @@
-# APP NAME
+# Angle Recruiter
 
 ## 💡 Inspiration
 
 ## 💻 What it does
 
-APP NAME is your one stop solution to all your job problems. I features unique capabilities such as -
+Angle Recruiter is your one stop solution to all your job problems. I features unique capabilities such as -
 
 - **Resume based job search** - Just upload your resume and our state of the art ML model will extract relevant details from it and show you jobs based on your skillset.
 - **Application Tracker** - Ever been in a position where you recieve an interview mail but have no idea when you applied for the job or what were the key requirements for it? Well say goodbye to those moments because now you can track all you applications at one place and track details like Job Description, **add more things**.
@@ -45,7 +45,7 @@ We are using blockchain to build a web3 application that is decentralized and se
 - Collaboration with other developers.
 - Using Ethereum blockchain for creating a decentralized application.
 
-## 🚀 What's next for APP NAME
+## 🚀 What's next for Angle Recruiter
 
 - Deploying the web app.
 - Building a mobile app
