@@ -1,5 +1,6 @@
 import pandas as pd
 from datetime import datetime
+import json
 
 df = pd.read_csv('Connections.csv', skiprows=2)
 
@@ -37,4 +38,6 @@ final_json['first connected with'] = df.sort_values('Connected On').head(1)[['Fi
 final_json['last connected with'] = df.sort_values('Connected On', ascending=False).head(1)[['First Name', 'Last Name', 'Connected On']].to_dict('records')
 final_json['cold email'] = df[~df['Email Address'].isna()].to_dict('records')
 
-print(final_json)
+json_object = json.dumps(final_json, indent = 4)
+
+print(json_object)
