@@ -1,0 +1,90 @@
+[
+    {
+        "First_Name": "Cauane",
+        "Last_Name": "Andrade",
+        "Email_Address": "cauane.emanuela@hotmail.com",
+        "Company": "TerraMagna",
+        "Position": "Junior Software Engineer",
+        "Connected_On": "2021-10-04"
+    },
+    {
+        "First_Name": "Prerit",
+        "Last_Name": "Tyagi",
+        "Email_Address": "prerittyagi3@gmail.com",
+        "Company": "NaN",
+        "Position": "NaN",
+        "Connected_On": "2021-06-27"
+    },
+    {
+        "First_Name": "Lourde",
+        "Last_Name": "Mary.T",
+        "Email_Address": "lourdemary2182000@gmail.com",
+        "Company": "SmartKatch ",
+        "Position": "Associate Software Developer",
+        "Connected_On": "2021-06-19"
+    },
+    {
+        "First_Name": "Rajesh",
+        "Last_Name": "Bhatt",
+        "Email_Address": "rajeshbhatt325@gmail.com",
+        "Company": "R&B Research Center",
+        "Position": "Founder",
+        "Connected_On": "2021-04-06"
+    },
+    {
+        "First_Name": "Akshit",
+        "Last_Name": "Rawat",
+        "Email_Address": "akshitrawat.amank@gmail.com",
+        "Company": "NaN",
+        "Position": "NaN",
+        "Connected_On": "2021-02-06"
+    },
+    {
+        "First_Name": "Mohamad",
+        "Last_Name": "ElJachi",
+        "Email_Address": "mohdjishi@hotmail.com",
+        "Company": "GE Digital",
+        "Position": "Reliability Outcome Engineer",
+        "Connected_On": "2020-12-11"
+    },
+    {
+        "First_Name": "Kapil",
+        "Last_Name": "Sharma",
+        "Email_Address": "k756777@gmail.com",
+        "Company": "NaN",
+        "Position": "NaN",
+        "Connected_On": "2020-11-19"
+    },
+    {
+        "First_Name": "Vartika",
+        "Last_Name": "Gupta",
+        "Email_Address": "gvartika.04@gmail.com",
+        "Company": "Accenture",
+        "Position": "Associate Software Engineer",
+        "Connected_On": "2020-08-20"
+    },
+    {
+        "First_Name": "Kritika",
+        "Last_Name": "Rupauliha",
+        "Email_Address": "rkritika1508@gmail.com",
+        "Company": "Microsoft",
+        "Position": "Software Engineer",
+        "Connected_On": "2020-08-13"
+    },
+    {
+        "First_Name": "Hemant",
+        "Last_Name": "Bansal",
+        "Email_Address": "hem.ban.067@gmail.com",
+        "Company": "Google",
+        "Position": "Software Engineer II",
+        "Connected_On": "2020-07-15"
+    },
+    {
+        "First_Name": "Shashi",
+        "Last_Name": "Shekhar",
+        "Email_Address": "shashishekhar18octo@gmail.com",
+        "Company": "Tata Consultancy Services",
+        "Position": "Associate System Engineer",
+        "Connected_On": "2020-05-15"
+    }
+]

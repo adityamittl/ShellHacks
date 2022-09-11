@@ -1,0 +1,244 @@
+{
+    "total_connections": 959,
+    "new connections this month": 0,
+    "top 10 companies": [
+        {
+            "Company": "Infosys",
+            "count": 18
+        },
+        {
+            "Company": "Graphic Era Deemed to be University",
+            "count": 15
+        },
+        {
+            "Company": "Tata Consultancy Services",
+            "count": 13
+        },
+        {
+            "Company": "Amazon",
+            "count": 13
+        },
+        {
+            "Company": "Samsung India",
+            "count": 12
+        },
+        {
+            "Company": "Capgemini",
+            "count": 11
+        },
+        {
+            "Company": "Cognizant",
+            "count": 11
+        },
+        {
+            "Company": "Microsoft",
+            "count": 11
+        },
+        {
+            "Company": "Google",
+            "count": 10
+        },
+        {
+            "Company": "Developer Student Clubs GEU",
+            "count": 10
+        }
+    ],
+    "top 10 positions": [
+        {
+            "Position": "Software Engineer",
+            "count": 36
+        },
+        {
+            "Position": "Student",
+            "count": 19
+        },
+        {
+            "Position": "Research Intern",
+            "count": 13
+        },
+        {
+            "Position": "Intern",
+            "count": 11
+        },
+        {
+            "Position": "Web Developer",
+            "count": 8
+        },
+        {
+            "Position": "Founder",
+            "count": 8
+        },
+        {
+            "Position": "Senior Software Engineer",
+            "count": 8
+        },
+        {
+            "Position": "Associate Software Engineer",
+            "count": 8
+        },
+        {
+            "Position": "Software Engineer Intern",
+            "count": 7
+        },
+        {
+            "Position": "Mentor",
+            "count": 6
+        }
+    ],
+    "last 10 connections": [
+        {
+            "First Name": "Richa",
+            "Last Name": "Choubey",
+            "Connected On": "2022-03-03"
+        },
+        {
+            "First Name": "Deepak Singh",
+            "Last Name": "Karki",
+            "Connected On": "2022-03-02"
+        },
+        {
+            "First Name": "Bhaskar",
+            "Last Name": "Negi",
+            "Connected On": "2022-03-02"
+        },
+        {
+            "First Name": "Rahul",
+            "Last Name": "Jain",
+            "Connected On": "2022-03-01"
+        },
+        {
+            "First Name": "Dinesh",
+            "Last Name": "Singh",
+            "Connected On": "2022-03-01"
+        },
+        {
+            "First Name": "Aryan",
+            "Last Name": "Abraham",
+            "Connected On": "2022-03-01"
+        },
+        {
+            "First Name": "Vinay",
+            "Last Name": "Uniyal",
+            "Connected On": "2022-02-27"
+        },
+        {
+            "First Name": "HR",
+            "Last Name": "Networsys",
+            "Connected On": "2022-02-23"
+        },
+        {
+            "First Name": "Onyemowo",
+            "Last Name": "Agbo",
+            "Connected On": "2022-02-22"
+        },
+        {
+            "First Name": "Vivek",
+            "Last Name": "Nigam",
+            "Connected On": "2022-02-22"
+        }
+    ],
+    "first connected with": [
+        {
+            "First Name": "Viplove",
+            "Last Name": "Mittal",
+            "Connected On": "2019-10-18"
+        }
+    ],
+    "last connected with": [
+        {
+            "First Name": "Richa",
+            "Last Name": "Choubey",
+            "Connected On": "2022-03-03"
+        }
+    ],
+    "cold email": [
+        {
+            "First Name": "Cauane",
+            "Last Name": "Andrade",
+            "Email Address": "cauane.emanuela@hotmail.com",
+            "Company": "TerraMagna",
+            "Position": "Junior Software Engineer",
+            "Connected On": "2021-10-04"
+        },
+        {
+            "First Name": "Prerit",
+            "Last Name": "Tyagi",
+            "Email Address": "prerittyagi3@gmail.com",
+            "Company": NaN,
+            "Position": NaN,
+            "Connected On": "2021-06-27"
+        },
+        {
+            "First Name": "Lourde",
+            "Last Name": "Mary.T",
+            "Email Address": "lourdemary2182000@gmail.com",
+            "Company": "SmartKatch ",
+            "Position": "Associate Software Developer",
+            "Connected On": "2021-06-19"
+        },
+        {
+            "First Name": "Rajesh",
+            "Last Name": "Bhatt",
+            "Email Address": "rajeshbhatt325@gmail.com",
+            "Company": "R&B Research Center",
+            "Position": "Founder",
+            "Connected On": "2021-04-06"
+        },
+        {
+            "First Name": "Akshit",
+            "Last Name": "Rawat",
+            "Email Address": "akshitrawat.amank@gmail.com",
+            "Company": NaN,
+            "Position": NaN,
+            "Connected On": "2021-02-06"
+        },
+        {
+            "First Name": "Mohamad",
+            "Last Name": "ElJachi",
+            "Email Address": "mohdjishi@hotmail.com",
+            "Company": "GE Digital",
+            "Position": "Reliability Outcome Engineer",
+            "Connected On": "2020-12-11"
+        },
+        {
+            "First Name": "Kapil",
+            "Last Name": "Sharma",
+            "Email Address": "k756777@gmail.com",
+            "Company": NaN,
+            "Position": NaN,
+            "Connected On": "2020-11-19"
+        },
+        {
+            "First Name": "Vartika",
+            "Last Name": "Gupta",
+            "Email Address": "gvartika.04@gmail.com",
+            "Company": "Accenture",
+            "Position": "Associate Software Engineer",
+            "Connected On": "2020-08-20"
+        },
+        {
+            "First Name": "Kritika",
+            "Last Name": "Rupauliha",
+            "Email Address": "rkritika1508@gmail.com",
+            "Company": "Microsoft",
+            "Position": "Software Engineer",
+            "Connected On": "2020-08-13"
+        },
+        {
+            "First Name": "Hemant",
+            "Last Name": "Bansal",
+            "Email Address": "hem.ban.067@gmail.com",
+            "Company": "Google",
+            "Position": "Software Engineer II",
+            "Connected On": "2020-07-15"
+        },
+        {
+            "First Name": "Shashi",
+            "Last Name": "Shekhar",
+            "Email Address": "shashishekhar18octo@gmail.com",
+            "Company": "Tata Consultancy Services",
+            "Position": "Associate System Engineer",
+            "Connected On": "2020-05-15"
+        }
+    ]
+}

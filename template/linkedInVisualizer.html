@@ -16,6 +16,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js">
+    </script>
 
 </head>
 
@@ -261,14 +264,14 @@
             z-index: 2;
         }
 
-        .hero_heading{
+        .hero_heading {
             display: grid;
             place-items: center;
             font-size: 32px;
             padding-top: 15px;
         }
 
-        .wallet-connect-button{
+        .wallet-connect-button {
             position: absolute;
             top: 20px;
             right: 20px;
@@ -279,6 +282,55 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
+        .submit-resume {
+            display: grid;
+            place-items: center;
+        }
+
+        .myFile {
+            font-size: 16px;
+            padding-top: 25px;
+        }
+
+        .submit-btn {
+            background-color: #1d1b31;
+            color: #fff;
+            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* .graph-rep{
+            display: grid;
+            place-items: center;
+            padding-top: 16px;
+            padding-bottom: 16px;
+        } */
+
+        table {
+            margin: 30px auto;
+            font-size: large;
+            border: 1px solid black;
+        }
+
+        td {
+            background-color: #E4F5D4;
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            font-weight: bold;
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        td {
+            font-weight: lighter;
+        }
     </style>
 
     <div class="sidebar">
@@ -288,35 +340,35 @@
         </div>
         <ul class="nav-list">
             <li>
-                <a href="/">
+                <a href="./home.html">
                     <i class='bx bx-grid-alt'></i>
                     <span class="links_name">Home</span>
                 </a>
                 <span class="tooltip">Home</span>
             </li>
             <li>
-                <a href="/resumeClassifier">
+                <a href="./resumeClassifier.html">
                     <i class='bx bxs-book-content'></i>
                     <span class="links_name">Resume Classifier</span>
                 </a>
                 <span class="tooltip">Resume Classifier</span>
             </li>
             <li>
-                <a href="/linkedInVisualizer">
+                <a href="./linkedInVisualizer.html">
                     <i class='bx bxl-linkedin-square'></i>
                     <span class="links_name">LinkedIn Visualizer</span>
                 </a>
                 <span class="tooltip">LinkedIn Visualizer</span>
             </li>
             <li>
-                <a href="/applicationTracker">
+                <a href="./applicationTracker.html">
                     <i class='bx bxs-book-bookmark'></i>
                     <span class="links_name">Application Tracker</span>
                 </a>
                 <span class="tooltip">Application Tracker</span>
             </li>
             <li>
-                <a href="/chatroom">
+                <a href="./chatroom.html">
                     <i class='bx bxs-conversation'></i>
                     <span class="links_name">Chatroom</span>
                 </a>
@@ -334,6 +386,33 @@
     <section class="home" id="home">
 
         <h1 class="hero_heading">LinkedIn Visualizer</h1>
+
+        <div class="submit-resume">
+            <input type="file" id="myFile" name="filename">
+            <br>
+
+            <input type="Submit" name="answer" class="submit-btn" value="Submit" onclick="showDiv()" />
+        </div>
+
+
+        <div class="graph-rep" id="welcomeDiv" style="display:none;">
+            <canvas id="myChart1" style="width:100%; max-width:1200px; padding: 36px;"></canvas>
+            <canvas id="myChart2" style="width:100%; max-width:1200px; padding: 36px;"></canvas>
+
+            <table id='table'>
+                <!-- HEADING FORMATION -->
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email Address</th>
+                    <th>Company</th>
+                    <th>Position</th>
+                    <th>Connected On</th>
+                </tr>
+
+            </table>
+        </div>
+
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
@@ -353,6 +432,14 @@
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2.2.1/src/js.cookie.min.js"></script>
 
     <script>
+
+        function showDiv() {
+            document.getElementById('welcomeDiv').style.display = "block";
+        }
+
+
+
+
         function imgsplit() {
             $("#splitform").append("<input type = 'file' name = 'myfile' id='myfile'>")
             $("#mos").val('1');
@@ -378,6 +465,94 @@
         });
 
         console.log(Cookies.get('csrftoken'));
+
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+            // FETCHING DATA FROM JSON FILE
+            $.getJSON("./data/coldEmail.json",
+                function (data) {
+                    var student = '';
+
+                    // ITERATING THROUGH OBJECTS
+                    $.each(data, function (key, value) {
+
+                        //CONSTRUCTION OF ROWS HAVING
+                        // DATA FROM JSON OBJECT
+                        student += '<tr>';
+                        student += '<td>' +
+                            value.First_Name + '</td>';
+
+                        student += '<td>' +
+                            value.Last_Name + '</td>';
+
+                        student += '<td>' +
+                            value.Email_Address + '</td>';
+
+                        student += '<td>' +
+                            value.Company + '</td>';
+
+                        student += '<td>' +
+                            value.Position + '</td>';
+
+                        student += '<td>' +
+                            value.Connected_On + '</td>';
+
+                        student += '</tr>';
+                    });
+
+                    //INSERTING ROWS INTO TABLE 
+                    $('#table').append(student);
+                });
+        });
+    </script>
+
+    <script>
+
+        var xValues1 = ["Infosys", "Graphic Era Deemed to be University", "Tata Consultancy Services", "Amazon", "Samsung India", "Capgemini", "Cognizant", "Microsoft", "Google", "Developer Student Clubs GEU"];
+        var yValues1 = [18, 15, 13, 13, 12, 11, 11, 10, 10, 10, 9];
+
+        new Chart("myChart1", {
+            type: "bar",
+            data: {
+                labels: xValues1,
+                datasets: [{
+                    backgroundColor: "blue",
+                    data: yValues1
+                }]
+            },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: "Top 10 companies"
+                }
+            }
+        });
+
+        var xValues1 = ["Software Engineer", "Student", "Research Intern", "Intern", "Web Developer", "Founder", "Senior Software Engineer", "Associate Software Engineer", "Software Engineer Intern", "Mentor"];
+        var yValues1 = [36, 19, 13, 13, 12, 11, 11, 10, 10, 10, 9];
+
+        new Chart("myChart2", {
+            type: "bar",
+            data: {
+                labels: xValues1,
+                datasets: [{
+                    backgroundColor: "green",
+                    data: yValues1
+                }]
+            },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: "Top 10 positions"
+                }
+            }
+        });
+
 
     </script>
 
