@@ -9,6 +9,7 @@
 - Frontend: HTML, CSS, JS
 - Backend: Django
 - Blockchain: Ethereum
+- Resume Parser: Azure Form Recognizer
 
 ## 🌐 Best Domain Name from Domain.com - MLH
 
@@ -16,7 +17,7 @@
 
 ## ☁ Best Use of Microsoft Cloud for Social Impact - MLH
 
-We are using Azure Cloud to train our ML model for Resume Screening. We are using Azure's Cognitive Services to extract text from the resume and then we are using Azure's Machine Learning Studio to train our model. Azure is a great platform for ML and AI and we are using it to solve problem faced by many people looking for jobs.
+We are using Azure Form Recognizer to train our custom ML model for Resume Screening. We are using Azure Blob storage to store our training data for the model. We are using Azure's Cognitive Services to extract text from the resume and then we are using Azure's Machine Learning Studio to train our model. Azure is a great platform for ML and AI and we are using it to solve problem faced by many people looking for jobs.
 
 ## ⛓ MITRE: Building Web3
 
@@ -41,3 +42,4 @@ We are using blockchain to build a web3 application that is decentralized and se
 
 - Deploying the web app.
 - Building a mobile app
+- Using a more powerful Machine Learning Algorithm like LSTM for Resume Sorting.
