@@ -8,8 +8,8 @@ APP NAME is your one stop solution to all your job problems. I features unique c
 
 - **Resume based job search** - Just upload your resume and our state of the art ML model will extract relevant details from it and show you jobs based on your skillset.
 - **Application Tracker** - Ever been in a position where you recieve an interview mail but have no idea when you applied for the job or what were the key requirements for it? Well say goodbye to those moments because now you can track all you applications at one place and track details like Job Description, **add more things**.
-- **Linkedin Analyzer** - 
-- **Chat Room** - 
+- **Linkedin Analyzer** - We all know how important Linkedin is for job search but how many of us actually know how to use it to its full potential? Well now you can use our Linkedin Analyzer to get insights about your profile and how to improve it. It will also show the First Name, Last Name, Email Address, Company Position, Email Address of the person you are hace to connect with, so that you can directly send them a mail for refral or to ask for a job.
+- **Chat Room** - In the chatroom you can discuss your job search problems with other users and get their advice. You can also ask for help from our team of experts and get your doubts cleared. And if you find a user who is really helpful, you can give them a ETH tip for their help.
 
 ## ⚙️ How we built it
 
